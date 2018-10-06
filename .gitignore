@@ -1,0 +1,13 @@
+*.iml
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/misc.xml
+/.idea/project-template.xml
+/.idea/description.html
+/.idea
+.DS_Store
+/out
+*.xml
+*.html
+*.class
