@@ -19,7 +19,10 @@ public class Strings {
         printFirstNonRepeatedChar(s1);
     }
 
-
+    /**
+     * Print first non repeated character from String?
+     * @param s input string
+     */
     private static void printFirstNonRepeatedChar(String s) {
         for (int j = 0; j < s.length(); j++) {
             if (!s.substring(j+1).contains(s.charAt(j)+"")) {
@@ -29,6 +32,13 @@ public class Strings {
         }
     }
 
+    /**
+     *  Check if two Strings are anagrams of each other?
+     *  Anagram : The anagram of string contains same characters with same occurrence but with different arrangement
+     * @param word actual word
+     * @param anagram anagram word
+     * @return true if both words are anagram
+     */
     private static boolean checkAnagramManually(String word, String anagram) {
         if (word.length() != anagram.length()) {
             return false;
@@ -48,6 +58,11 @@ public class Strings {
         return anagram.isEmpty();
     }
 
+    /**
+     * Check anagram using utility methods.
+     * @param s actual string
+     * @param s1 anagram string
+     */
     private static void checkAnagram(String s, String s1) {
         char[] a = s.toCharArray();
         char[] a2 = s1.toCharArray();
@@ -56,6 +71,11 @@ public class Strings {
         System.out.println(Arrays.equals(a, a2));
     }
 
+    /**
+     * Reverse a given String using recursion?
+     * @param s input string
+     * @return reversed string
+     */
     public static String reverseString(String s) {
         if (s.length() > 0 && i-- > 0) {
             return reverseString(s.substring(1)) + s.charAt(0);
@@ -64,6 +84,10 @@ public class Strings {
         }
     }
 
+    /**
+     * Find duplicate characters in a String?
+     * @param s input string
+     */
     public static void printDublicateChars(String s) {
         StringBuilder output = new StringBuilder();
         for (int j = 0; j < s.length() - 1; j++) {
