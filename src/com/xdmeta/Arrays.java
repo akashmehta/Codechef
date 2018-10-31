@@ -12,12 +12,12 @@ public class Arrays {
     private static int[] ar;
     public static void main(String a[]) {
 //        findMismatch(new int[]{10, 3, 5, 7, 2, 8, 1}, 4, ARRAY);
-        ar = new int[]{6,3,7,2,1,8};
+        ar = new int[]{12,6,9,3,25,7,2,58,1,8};
         sort(ar);
         for (int anAr : ar) {
-            System.out.println("ar[k] = " + anAr);
+            System.out.print(",  " + anAr);
         }
-
+        System.out.println();
     }
 
 
@@ -27,6 +27,7 @@ public class Arrays {
 
     private static void quickSort(int low, int high) {
         int pivot = ar[low + (high - low)/2];
+        System.out.println(pivot);
         int i = low, j = high;
         while (i <= j) {
             while (ar[i] < pivot) {
@@ -40,6 +41,11 @@ public class Arrays {
                 i++;
                 j--;
             }
+            for (int anAr : ar) {
+                System.out.print(", " + anAr);
+            }
+            System.out.println();
+
         }
         if (low < j) {
             quickSort(low, j);
