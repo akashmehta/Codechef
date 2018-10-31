@@ -10,23 +10,39 @@ public class Arrays {
     private static final int ARRAY = 0;
     private static final int LINK_LIST = 1;
     private static int[] ar;
+
     public static void main(String a[]) {
 //        findMismatch(new int[]{10, 3, 5, 7, 2, 8, 1}, 4, ARRAY);
-        ar = new int[]{12,6,9,3,25,7,2,58,1,8};
-        sort(ar);
-        for (int anAr : ar) {
-            System.out.print(",  " + anAr);
-        }
-        System.out.println();
+//        ar = new int[]{12, 6, 9, 3, 25, 7, 2, 58, 1, 8};
+//        sort(ar);
+//        for (int anAr : ar) {
+//            System.out.print(",  " + anAr);
+//        }
+        printFib(15);
     }
 
+    private static void printFib(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println(" "+fib(i));
+        }
+    }
+
+
+    private static int fib(int n) {
+        if(n == 0)
+            return 0;
+        else if(n == 1)
+            return 1;
+        else
+            return fib(n - 1) + fib(n - 2);
+    }
 
     private static void sort(int[] ar) {
         quickSort(0, ar.length - 1);
     }
 
     private static void quickSort(int low, int high) {
-        int pivot = ar[low + (high - low)/2];
+        int pivot = ar[low + (high - low) / 2];
         System.out.println(pivot);
         int i = low, j = high;
         while (i <= j) {
@@ -51,7 +67,7 @@ public class Arrays {
             quickSort(low, j);
         }
         if (high > i) {
-            quickSort(  i, high);
+            quickSort(i, high);
         }
     }
 
