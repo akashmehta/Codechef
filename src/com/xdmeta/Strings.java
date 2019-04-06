@@ -2,6 +2,11 @@ package com.xdmeta;
 
 import java.util.Arrays;
 
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
 
 /**
  * Created by stllpt031 on 2/10/18.
@@ -21,11 +26,12 @@ public class Strings {
 
     /**
      * Print first non repeated character from String?
+     *
      * @param s input string
      */
     private static void printFirstNonRepeatedChar(String s) {
         for (int j = 0; j < s.length(); j++) {
-            if (!s.substring(j+1).contains(s.charAt(j)+"")) {
+            if (!s.substring(j + 1).contains(s.charAt(j) + "")) {
                 System.out.println("s.charAt(j) = " + s.charAt(j));
                 break;
             }
@@ -33,9 +39,10 @@ public class Strings {
     }
 
     /**
-     *  Check if two Strings are anagrams of each other?
-     *  Anagram : The anagram of string contains same characters with same occurrence but with different arrangement
-     * @param word actual word
+     * Check if two Strings are anagrams of each other?
+     * Anagram : The anagram of string contains same characters with same occurrence but with different arrangement
+     *
+     * @param word    actual word
      * @param anagram anagram word
      * @return true if both words are anagram
      */
@@ -60,7 +67,8 @@ public class Strings {
 
     /**
      * Check anagram using utility methods.
-     * @param s actual string
+     *
+     * @param s  actual string
      * @param s1 anagram string
      */
     private static void checkAnagram(String s, String s1) {
@@ -73,6 +81,7 @@ public class Strings {
 
     /**
      * Reverse a given String using recursion?
+     *
      * @param s input string
      * @return reversed string
      */
@@ -86,6 +95,7 @@ public class Strings {
 
     /**
      * Find duplicate characters in a String?
+     *
      * @param s input string
      */
     public static void printDublicateChars(String s) {
@@ -99,4 +109,29 @@ public class Strings {
     }
 
 
+}
+
+class Solution {
+    public static String output = "";
+
+    public static void main(String args[]) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        String input = "I Live in India";
+        System.out.println(Solution.reverseSentence(input, 0));
+    }
+
+    public static String reverseSentence(String input, int i) {
+        System.out.println("input = " + input);
+        String[] inputAr = input.split(" ");
+        if (i < inputAr.length) {
+            String str = "";
+            for (int j = i; j < inputAr.length; j++) {
+                str = inputAr[j] + str;
+            }
+            output = str + output;
+            return reverseSentence(str, ++i);
+        } else {
+            return output;
+        }
+    }
 }

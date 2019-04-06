@@ -1,5 +1,8 @@
 package com.xdmeta;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class QuickSort {
 
     private static int buffer1 = 0, buffer2 = 0;
@@ -43,10 +46,7 @@ public class QuickSort {
                 ar[ar.length - 1] = buffer2;
                 ar[i] = buffer1;
             }
-            int[] subAr1 = new int[i];
-            for (int k = 0; k < i; k++) {
-                subAr1[k] = ar[k];
-            }
+            int[] subAr1 = Arrays.copyOf(ar, i);
             int[] subAr2 = new int[ar.length - i -1];
 
             int n = 0;

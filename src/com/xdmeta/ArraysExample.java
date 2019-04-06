@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * Created by stllpt031 on 6/10/18.
  */
-public class Arrays {
+public class ArraysExample {
 
     private static final int ARRAY = 0;
     private static final int LINK_LIST = 1;
@@ -95,7 +95,7 @@ public class Arrays {
                 }
                 for (int item :
                         array) {
-                    list.remove(list.indexOf(item));
+                    list.remove(item);
                 }
                 for (Integer item :
                         list) {
@@ -124,4 +124,7 @@ public class Arrays {
         }
     }
 
+    public static void setAr(int[] ar) {
+        ArraysExample.ar = ar;
+    }
 }
