@@ -2,6 +2,9 @@ package com.xdmeta;
 
 import java.util.Arrays;
 
+/**
+ * Codality Test.
+ */
 public class Test {
 
     private static int[] A = {1,3,6,4,1,2} ;
