@@ -10,7 +10,7 @@ class NodePathPractical {
         System.out.println(Arrays.toString(output));
     }
 
-    static HashMap<Integer, ArrayList<Integer>> map = new HashMap();
+    static HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
     static int rootNode = -1;
     static int[] pathsAr = new int[0];
     public static int[] solution(int[] T) {
@@ -21,7 +21,7 @@ class NodePathPractical {
         for (int i = 0; i < T.length ; i ++) {
             if ( i == T[i]) { rootNode = i; }
             if (map.get(T[i]) == null) {
-                ArrayList<Integer> valueAr = new ArrayList();
+                ArrayList<Integer> valueAr = new ArrayList<>();
                 valueAr.add(i);
                 map.put(T[i], valueAr);
             } else {
@@ -33,19 +33,19 @@ class NodePathPractical {
         ArrayList<Integer> rootConnectedNodes = map.get(rootNode);
         int position = 0;
 
-        ArrayList<Integer> foundPaths = new ArrayList();
+        ArrayList<Integer> foundPaths = new ArrayList<>();
         foundPaths.add(rootNode);
-        for ( int i = 0; i < T.length ; i++ ) {
-            if (foundPaths.contains(T[i])) {
+        for (int value : T) {
+            if (foundPaths.contains(value)) {
                 continue;
             }
-            if (rootConnectedNodes.contains(T[i])) {
+            if (rootConnectedNodes.contains(value)) {
                 pathsAr[position] = pathsAr[position] + 1;
-                foundPaths.add(T[i]);
-                position ++;
+                foundPaths.add(value);
+                position++;
             } else {
-                findPath(rootConnectedNodes, T[i], position, ++pathsAr[position]);
-                foundPaths.add(T[i]);
+                findPath(rootConnectedNodes, value, position, ++pathsAr[position]);
+                foundPaths.add(value);
                 position++;
             }
         }

@@ -1,23 +1,20 @@
 package com.xdmeta;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class QuickSort {
 
-    private static int buffer1 = 0, buffer2 = 0;
-
-    public static void main(String a[]) {
+    public static void main(String[] a) {
         int[] ar = new int[]{12,6,9,3,25,7,2,58,1,8};
         int[] sortedAr = sort(ar);
-        for (int k = 0; k < sortedAr.length; k++) {
-            System.out.println("sortedAr = " + sortedAr[k]);
-        }
+        System.out.println(Arrays.toString(sortedAr));
     }
 
-    private static int[] sort(int ar[]) {
+    private static int[] sort(int[] ar) {
         int[] sortedAr = new int[ar.length];
 
+        int buffer1;
+        int buffer2;
         if (ar.length <= 1) {
             sortedAr = ar;
         } else if (ar.length == 2) {
@@ -46,25 +43,24 @@ public class QuickSort {
                 ar[ar.length - 1] = buffer2;
                 ar[i] = buffer1;
             }
-            int[] subAr1 = Arrays.copyOf(ar, i);
-            int[] subAr2 = new int[ar.length - i -1];
+            // int[] ar = new int[]{6,3,7,2,1,8,9,25,58,12};
+            int[] subAr1 = Arrays.copyOf(ar, i); // {6,3,7,2,1,8}, i = 5
+            int[] subAr2 = new int[ar.length - i -1]; // 10 - 4 - 1 = 5
 
             int n = 0;
             for (int k = i + 1; k < ar.length; k++) {
                 subAr2[n++] = ar[k];
             }
+            //  {9,25,58,12}
             int[] subAr1Sorted = sort(subAr1);
             int[] subAr2Sorted = sort(subAr2);
 
-            for (int k = 0; k < i; k++) {
-                sortedAr[k] = subAr1Sorted[k];
-            }
+            System.arraycopy(subAr1Sorted, 0, sortedAr, 0, i);
             sortedAr[i] = ar[i];
             int m = 0;
             for (int k = i + 1; k < ar.length; k++) {
                 sortedAr[k] = subAr2Sorted[m++];
             }
-
         }
 
         return sortedAr;
